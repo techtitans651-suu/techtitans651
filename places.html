@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar with User Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    .navbar .account {
+      margin-left: auto;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar .account span {
+      margin-right: 8px;
+    }
+    .navbar .account button {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .account button:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn, .navbar .account {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+      .navbar .account {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+    <div class="account" id="userAccount">
+      <span id="userEmail"></span>
+      <button onclick="logoutUser()">Logout</button>
+    </div>
+  </nav>
+  <script>
+    // Example: user email stored in localStorage after login
+    // localStorage.setItem('userEmail', 'user@example.com');
+    function showUserEmail() {
+      var email = localStorage.getItem('userEmail');
+      document.getElementById('userEmail').textContent = email ? email : "Guest";
+    }
+    function logoutUser() {
+      localStorage.removeItem('userEmail');
+      window.location.reload();
+    }
+    showUserEmail();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Beautiful, Adventure & Historical Places Gallery</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2764ac;
+            margin-top: 30px;
+        }
+        .section {
+            margin: 40px auto 30px auto;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            padding: 30px 28px 26px 28px;
+        }
+        h2 {
+            color: #1f4b6f;
+            margin-bottom: 18px;
+        }
+        .place {
+            margin-bottom: 28px;
+        }
+        .place-title {
+            font-size: 1.25em;
+            font-weight: bold;
+            color: #3d6cb9;
+            margin-bottom: 8px;
+        }
+        .place-desc {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 1.05em;
+        }
+        .photos {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .photos img {
+            width: 210px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+        }
+        .photos img:hover {
+            transform: scale(1.07);
+        }
+    </style>
+</head>
+<body>
+    <h1>Indian Beautiful, Adventure & Historical Places</h1>
+    <div class="section">
+        <h2>Beautiful Places</h2>
+        
+        <div class="place">
+            <div class="place-title">Dal Lake, Kashmir</div>
+            <div class="place-desc">Known for its stunning beauty and serene houseboats, surrounded by snow-capped mountains.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h2.jpg" alt="Dal Lake 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h3.jpg" alt="Dal Lake 2">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h4.jpg" alt="Dal Lake 3">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Valley of Flowers, Uttarakhand</div>
+            <div class="place-desc">A UNESCO World Heritage Site, famous for its vibrant meadows of endemic alpine flowers.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h7.jpg" alt="Valley of Flowers 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h8.jpg" alt="Valley of Flowers 2">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Kerala Backwaters</div>
+            <div class="place-desc">A network of tranquil lagoons and lakes, known for its lush greenery and houseboat tours.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h9.jpg" alt="Kerala Backwaters 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h10.jpg" alt="Kerala Backwaters 2">
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Adventure Places</h2>
+        
+        <div class="place">
+            <div class="place-title">Rishikesh, Uttarakhand</div>
+            <div class="place-desc">The adventure capital of India, famous for white water rafting, bungee jumping, and yoga retreats.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h11.jpg" alt="Rishikesh Adventure 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h12.jpg" alt="Rishikesh Adventure 2">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Leh-Ladakh, Jammu & Kashmir</div>
+            <div class="place-desc">Known for its rugged terrains, high-altitude mountain passes, and thrilling bike rides.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h13.jpg" alt="Leh Ladakh 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h14.jpg" alt="Leh Ladakh 2">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h15.jpg" alt="Leh Ladakh 3">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Goa Beaches</div>
+            <div class="place-desc">Famous for water sports, vibrant nightlife, and beautiful sandy beaches.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h16.jpg" alt="Goa Beach 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h17.jpg" alt="Goa Beach 2">
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Historical Places</h2>
+        
+        <div class="place">
+            <div class="place-title">Taj Mahal, Agra</div>
+            <div class="place-desc">A UNESCO World Heritage Site, this marble mausoleum is a symbol of love and India's most iconic structure.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h5.jpg" alt="Taj Mahal 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h6.jpg" alt="Taj Mahal 2">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Hawa Mahal, Jaipur</div>
+            <div class="place-desc">The 'Palace of Winds', a unique five-story palace with ornate pink sandstone windows.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h18.jpg" alt="Hawa Mahal 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h19.jpg" alt="Hawa Mahal 2">
+            </div>
+        </div>
+        
+        <div class="place">
+            <div class="place-title">Red Fort, Delhi</div>
+            <div class="place-desc">A UNESCO World Heritage Site, this red sandstone fort is an architectural marvel from the Mughal era.</div>
+            <div class="photos">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h20.jpg" alt="Red Fort 1">
+                <img src="I:\Hackathon-GTU-SET-SEM1\h21.jpg" alt="Red Fort 2">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

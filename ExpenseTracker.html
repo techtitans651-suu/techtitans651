@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar with User Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    .navbar .account {
+      margin-left: auto;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar .account span {
+      margin-right: 8px;
+    }
+    .navbar .account button {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .account button:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn, .navbar .account {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+      .navbar .account {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+    <div class="account" id="userAccount">
+      <span id="userEmail"></span>
+      <button onclick="logoutUser()">Logout</button>
+    </div>
+  </nav>
+  <script>
+    // Example: user email stored in localStorage after login
+    // localStorage.setItem('userEmail', 'user@example.com');
+    function showUserEmail() {
+      var email = localStorage.getItem('userEmail');
+      document.getElementById('userEmail').textContent = email ? email : "Guest";
+    }
+    function logoutUser() {
+      localStorage.removeItem('userEmail');
+      window.location.reload();
+    }
+    showUserEmail();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef0f3;
+            margin: 0;
+            padding: 0;
+        }
+        .tracker-container {
+            max-width: 520px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            padding: 36px 32px;
+        }
+        h2 {
+            color: #0073e6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+            color: #444;
+        }
+        input {
+            width: 95%;
+            padding: 8px;
+            margin-top: 4px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .choices {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .choices label {
+            font-weight: 400;
+            color: #222;
+            margin-right: 20px;
+        }
+        button, .delete-btn {
+            margin-top: 18px;
+            width: 100%;
+            padding: 12px;
+            background: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.08em;
+            cursor: pointer;
+        }
+        button:hover, .delete-btn:hover {
+            background: #005bb5;
+        }
+        .result {
+            margin-top: 30px;
+            background: #eef4fb;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            margin-top: 22px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #d1e3f8;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #e6f0ff;
+            color: #005bb5;
+        }
+        .delete-btn {
+            background: #ff3333;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            width: auto;
+            margin-top: 0;
+        }
+        .delete-btn:hover {
+            background: #b30000;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker-container">
+        <h2>Expense Tracker</h2>
+        <form id="expenseForm">
+            <label>Date:
+                <input type="date" id="expenseDate" required>
+            </label>
+            <label>Amount:
+                <input type="number" id="expenseAmount" required min="0" step="0.01" placeholder="e.g. 250.50">
+            </label>
+            <label>Description:
+                <input type="text" id="expenseDescription" placeholder="e.g. Lunch at restaurant">
+            </label>
+            <label>Payment Method:</label>
+            <div class="choices">
+                <label>
+                    <input type="radio" name="paymentMethod" value="Cash" required> Cash
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Card"> Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="UPI"> UPI
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="Other"> Other
+                </label>
+            </div>
+            <button type="submit">Add Expense</button>
+        </form>
+        <div id="expenseTableContainer"></div>
+        <div class="result" id="totalResult"></div>
+    </div>
+
+    <script>
+        let expenses = [];
+
+        function updateTable() {
+            const container = document.getElementById('expenseTableContainer');
+            if (expenses.length === 0) {
+                container.innerHTML = "<p style='text-align:center;'>No expenses added yet.</p>";
+                document.getElementById('totalResult').textContent = "";
+                return;
+            }
+            let tableHtml = `<table>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Payment</th>
+                    <th>Action</th>
+                </tr>`;
+            let total = 0;
+            expenses.forEach((exp, idx) => {
+                tableHtml += `<tr>
+                    <td>${exp.date}</td>
+                    <td>₹${Number(exp.amount).toFixed(2)}</td>
+                    <td>${exp.description || '-'}</td>
+                    <td>${exp.payment}</td>
+                    <td><button class="delete-btn" onclick="deleteExpense(${idx})">Delete</button></td>
+                </tr>`;
+                total += Number(exp.amount);
+            });
+            tableHtml += `</table>`;
+            container.innerHTML = tableHtml;
+            document.getElementById('totalResult').innerHTML = `<b>Total Expense:</b> ₹${total.toFixed(2)}`;
+        }
+
+        document.getElementById('expenseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const date = document.getElementById('expenseDate').value;
+            const amount = document.getElementById('expenseAmount').value;
+            const description = document.getElementById('expenseDescription').value;
+            const payment = document.querySelector('input[name="paymentMethod"]:checked')?.value;
+
+            expenses.push({ date, amount, description, payment });
+            updateTable();
+            document.getElementById('expenseForm').reset();
+        });
+
+        function deleteExpense(index) {
+            expenses.splice(index, 1);
+            updateTable();
+        }
+
+        updateTable();
+    </script>
+</body>
+</html>

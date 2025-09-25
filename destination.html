@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar with User Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    .navbar .account {
+      margin-left: auto;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar .account span {
+      margin-right: 8px;
+    }
+    .navbar .account button {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .account button:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn, .navbar .account {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+      .navbar .account {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+    <div class="account" id="userAccount">
+      <span id="userEmail"></span>
+      <button onclick="logoutUser()">Logout</button>
+    </div>
+  </nav>
+  <script>
+    // Example: user email stored in localStorage after login
+    // localStorage.setItem('userEmail', 'user@example.com');
+    function showUserEmail() {
+      var email = localStorage.getItem('userEmail');
+      document.getElementById('userEmail').textContent = email ? email : "Guest";
+    }
+    function logoutUser() {
+      localStorage.removeItem('userEmail');
+      window.location.reload();
+    }
+    showUserEmail();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Destination Search Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef0f3;
+            margin: 0;
+            padding: 0;
+        }
+        .search-box {
+            max-width: 400px;
+            margin: 80px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            padding: 36px 32px;
+            text-align: center;
+        }
+        h2 {
+            color: #0073e6;
+            margin-bottom: 28px;
+        }
+        input[type="text"] {
+            width: 85%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            width: 90%;
+            padding: 12px;
+            background: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.08em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-box">
+        <h2>Destination Search</h2>
+        <input type="text" id="destination" placeholder="Enter destination place" required>
+        <button onclick="searchDestination()">Search on Google Maps</button>
+    </div>
+
+    <script>
+        function searchDestination() {
+            const place = document.getElementById('destination').value.trim();
+            if (place) {
+                // Open Google Maps with the place search
+                const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+                window.open(url, '_blank');
+            } else {
+                alert('Please enter a destination place.');
+            }
+        }
+    </script>
+</body>
+</html>

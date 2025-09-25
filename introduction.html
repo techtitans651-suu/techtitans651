@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Indian Trip Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 4rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .logo-img {
+      width: 70px;
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+    }
+    h2 {
+      color: #2176ae;
+      margin-bottom: 1.2rem;
+    }
+    .intro-section {
+      font-size: 1.12rem;
+      color: #444;
+      text-align: left;
+      margin: 1.6rem 0 2rem 0;
+    }
+    .trip-image {
+      width: 90%;
+      max-width: 380px;
+      border-radius: 10px;
+      margin: 2rem auto 1rem auto;
+      display: block;
+    }
+    .btn-tools {
+      background: #2176ae;
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1.6rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="I:\Hackathon-GTU-SET-SEM1\h.png" alt="India Travel Logo" class="logo-img">
+    <h2>Welcome to Indian Trip Tracker</h2>
+    <div class="intro-section">
+      <p>
+        <b>Indian Trip Tracker</b> is your personal assistant for planning, capturing, and sharing unforgettable journeys across India.<br>
+        <br>
+        <ul>
+          <li>Plan itineraries and destinations</li>
+          <li>Record your travel memories and expenses</li>
+          <li>Upload photos and share your adventures</li>
+          <li>Discover useful travel tools designed for Indian explorers</li>
+        </ul>
+        <br>
+        Begin your adventure and make every trip a cherished story!
+      </p>
+    </div>
+    <img class="trip-image" src="I:\Hackathon-GTU-SET-SEM1\h1.jpg" alt="Indian Trip">
+    <a class="btn-tools" href="tool.html">Go to Travel Tools</a>
+  </div>
+</body>
+</html>

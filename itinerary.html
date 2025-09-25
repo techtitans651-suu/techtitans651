@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+  </nav>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Itinerary Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef0f3;
+            margin: 0;
+            padding: 0;
+        }
+        .planner-box {
+            max-width: 520px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            padding: 36px 32px;
+        }
+        h2 {
+            color: #0073e6;
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: 600;
+            color: #444;
+        }
+        input, select {
+            width: 95%;
+            padding: 8px;
+            margin-top: 4px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .choices {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .choices label {
+            font-weight: 400;
+            color: #222;
+            margin-right: 20px;
+        }
+        button {
+            margin-top: 24px;
+            width: 100%;
+            padding: 12px;
+            background: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.08em;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+        .result {
+            margin-top: 30px;
+            background: #eef4fb;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="planner-box">
+        <h2>Itinerary Planner</h2>
+        <form id="itineraryForm">
+            <label>Destination:
+                <input type="text" id="destination" required placeholder="e.g.Agra,Goa,...">
+            </label>
+            <label>Start Date:
+                <input type="date" id="startDate" required>
+            </label>
+            <label>End Date:
+                <input type="date" id="endDate" required>
+            </label>
+            <label>Travel Type:</label>
+            <div class="choices">
+                <label>
+                    <input type="radio" name="travelType" value="Solo" required> Solo
+                </label>
+                <label>
+                    <input type="radio" name="travelType" value="Family"> Family
+                </label>
+                <label>
+                    <input type="radio" name="travelType" value="Business"> Business
+                </label>
+                <label>
+                    <input type="radio" name="travelType" value="Friends"> Friends
+                </label>
+            </div>
+            <label>Activities (choose multiple):</label>
+            <div class="choices">
+                <label>
+                    <input type="checkbox" name="activity" value="Sightseeing"> Sightseeing
+                </label>
+                <label>
+                    <input type="checkbox" name="activity" value="Adventure"> Adventure
+                </label>
+                <label>
+                    <input type="checkbox" name="activity" value="Shopping"> Shopping
+                </label>
+                <label>
+                    <input type="checkbox" name="activity" value="Food Tasting"> Food Tasting
+                </label>
+                <label>
+                    <input type="checkbox" name="activity" value="Relaxation"> Relaxation
+                </label>
+                <label>
+                    <input type="checkbox" name="activity" value="Culture"> Culture
+                </label>
+            </div>
+            <label>Accommodation Preference:</label>
+            <select id="accommodation" required>
+                <option value="">-- Select --</option>
+                <option value="Hotel">Hotel</option>
+                <option value="Hostel">Hostel</option>
+                <option value="Airbnb">Airbnb</option>
+                <option value="Resort">Resort</option>
+                <option value="Guesthouse">Guesthouse</option>
+            </select>
+            <button type="submit">Plan My Itinerary</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('itineraryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const destination = document.getElementById('destination').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const travelType = document.querySelector('input[name="travelType"]:checked')?.value;
+            const activities = [];
+            document.querySelectorAll('input[name="activity"]:checked').forEach(function (el) {
+                activities.push(el.value);
+            });
+            const accommodation = document.getElementById('accommodation').value;
+
+            document.getElementById('result').innerHTML =
+                `<strong>Your Itinerary:</strong><br>
+                 <b>Destination:</b> ${destination}<br>
+                 <b>Dates:</b> ${startDate} to ${endDate}<br>
+                 <b>Travel Type:</b> ${travelType}<br>
+                 <b>Activities:</b> ${activities.length ? activities.join(', ') : 'None selected'}<br>
+                 <b>Accommodation:</b> ${accommodation}`;
+        });
+    </script>
+</body>
+</html>

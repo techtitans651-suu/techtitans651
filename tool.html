@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation Bar with User Account</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #0073e6;
+      padding: 0 24px;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .navbar .nav-item {
+      color: #fff;
+      text-decoration: none;
+      padding: 0 18px;
+      line-height: 60px;
+      font-size: 1.07em;
+      transition: background 0.2s;
+      border-radius: 5px;
+    }
+    .navbar .nav-item:hover {
+      background: #005bb5;
+    }
+    .navbar .back-btn {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      padding: 8px 16px;
+      margin-right: 18px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .back-btn:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    .navbar .account {
+      margin-left: auto;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+    }
+    .navbar .account span {
+      margin-right: 8px;
+    }
+    .navbar .account button {
+      background: #fff;
+      color: #0073e6;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      font-size: 0.95em;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .navbar .account button:hover {
+      background: #e6f0ff;
+      color: #005bb5;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+      }
+      .navbar .nav-item, .navbar .back-btn, .navbar .account {
+        margin-bottom: 8px;
+        font-size: 1em;
+      }
+      .navbar .account {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.history.back();">Back</button>
+    <a href="introduction.html" class="nav-item">Home</a>
+    <a href="about.html" class="nav-item">About</a>
+    <a href="contact.html" class="nav-item">Contact</a>
+    <div class="account" id="userAccount">
+      <span id="userEmail"></span>
+      <button onclick="logoutUser()">Logout</button>
+    </div>
+  </nav>
+  <script>
+    // Example: user email stored in localStorage after login
+    // localStorage.setItem('userEmail', 'user@example.com');
+    function showUserEmail() {
+      var email = localStorage.getItem('userEmail');
+      document.getElementById('userEmail').textContent = email ? email : "Guest";
+    }
+    function logoutUser() {
+      localStorage.removeItem('userEmail');
+      window.location.reload();
+    }
+    showUserEmail();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indian Trip Tracker - Useful Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      padding: 2rem;
+      text-align: center;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    header img {
+      height: 48px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #2176ae;
+      margin-bottom: 2rem;
+    }
+    .useful-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .useful-card {
+      background: #f7f9fa;
+      border-radius: 10px;
+      padding: 1.2rem;
+      min-width: 180px;
+      max-width: 220px;
+      box-shadow: 0 2px 8px rgba(33,118,174,0.08);
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .useful-card:hover {
+      box-shadow: 0 4px 16px rgba(33,118,174,0.12);
+    }
+    .useful-card img {
+      width: 40px;
+      margin-bottom: .7rem;
+    }
+    .useful-card a {
+      color: #2176ae;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="I:\Hackathon-GTU-SET-SEM1\h.png" alt="India Travel Logo">
+      <h2>Useful Travel Tools</h2>
+    </header>
+    <div class="useful-boxes">
+      <div class="useful-card">
+        <img src="https://img.icons8.com/color/48/000000/marker.png" alt="Destination">
+        <div>Destination Search</div>
+        <a href="destination.html">Track destination</a>
+      </div>
+      <div class="useful-card">
+        <img src="https://img.icons8.com/color/48/000000/calendar.png" alt="Itinerary">
+        <div>Itinerary Planner</div>
+        <a href="itinerary.html">Plan Now</a>
+      </div>
+      <div class="useful-card">
+        <img src="https://img.icons8.com/color/48/000000/money.png" alt="Expenses">
+        <div>Expense Tracker</div>
+        <a href="ExpenseTracker.html">Track Expenses</a>
+      </div>
+      <div class="useful-card">
+        <img src="https://img.icons8.com/color/48/000000/camera.png" alt="Photos">
+        <div>Trip Gallery</div>
+        <a href="places.html">View Photos</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
